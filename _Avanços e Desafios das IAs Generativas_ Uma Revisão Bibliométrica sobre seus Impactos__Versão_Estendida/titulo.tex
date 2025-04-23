@@ -1,0 +1,27 @@
+\usepackage{lmodern}  % Fonte compatível
+\usepackage{helvet}   % Usa Arial (Helvetica)
+\usepackage{setspace} % Controle de espaçamento
+
+% Definição do subtítulo corretamente
+\newcommand{\subtitle}[1]{\def\thesubtitle{#1}} 
+\newcommand{\thesubtitle}{} % Inicializa o subtítulo como vazio
+
+\makeatletter
+\def\@maketitle{
+    \onehalfspacing
+    {\fontfamily{phv}\selectfont\fontsize{12}{12}\bfseries\centering \@title \par} % Título centralizado
+    \ifx\thesubtitle\empty\else
+        \vskip 1em
+        {\fontfamily{phv}\selectfont\fontsize{12}{12}\bfseries\raggedright \thesubtitle \par} % Subtítulo alinhado à esquerda
+    \fi
+    \vskip 1em
+    {\centering % Centraliza os autores
+        \small
+        \begin{tabular}[t]{c} % Mudança para "c" (centralizado)
+            \@author
+        \end{tabular}\par}
+    \vskip 1em
+    \eixo
+    \vskip 1.5em
+}
+\makeatother
